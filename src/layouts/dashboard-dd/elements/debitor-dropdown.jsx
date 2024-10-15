@@ -10,6 +10,8 @@ const DebitorDropdown = ({ filteredRows }) => {
     const calculateDebt = () => {
       if (!filteredRows || filteredRows.length === 0) return;
 
+      console.log(filteredRows);
+
       // Calculate total debt per manufactured company based on filteredRows
       const companyDebts = filteredRows.reduce((acc, item) => {
         const company =
@@ -17,7 +19,7 @@ const DebitorDropdown = ({ filteredRows }) => {
           item.hospital?.manufactured_company ||
           item.wholesale?.manufactured_company;
 
-        const debt = parseFloat(item.debtValue || 0);
+        const debt = parseFloat((item.debtValue ? item.debtValue : item.debt) || 0);
 
         if (company && item.checked) {
           // Assuming "Проверено" means checked
