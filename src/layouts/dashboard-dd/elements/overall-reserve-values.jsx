@@ -13,7 +13,7 @@ const OverallReservationValues = () => {
   const filteredRows = useSelector(selectFilteredReservations);
 
   // Calculate number of invoices and total invoice amount
-  const numberOfInvoices = filteredRows.length;
+  const numberOfInvoices = filteredRows.filter((row) => row.checked).length;
   const invoiceAmount = filteredRows.reduce(
     (sum, row) => sum + (row.checked ? row.total_payable_with_nds || 0 : 0),
     0
@@ -48,7 +48,7 @@ const OverallReservationValues = () => {
         </Grid>
         <Grid item>
           <Typography variant="button" fontWeight="medium">
-            Обшая сумма с/ф: {invoiceAmount?.toLocaleString("ru-RU")}{" "}
+            Обшая сумма реализации: {invoiceAmount?.toLocaleString("ru-RU")}{" "}
             <span style={{ textTransform: "lowercase" }}>сум</span>
           </Typography>
         </Grid>
