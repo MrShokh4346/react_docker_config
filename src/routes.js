@@ -77,6 +77,7 @@ import DeputyDirectorUpdateProduct from "layouts/dashboard-dd/components/dd-upda
 import DeputyDirectorDebts from "layouts/dashboard-dd/components/dd-debts";
 import DeputyDirectorMrsMonitoring from "layouts/dashboard-dd/components/dd-mr-monitoring";
 import DeputyDirectorLoginMonitoring from "layouts/dashboard-dd/components/dd-monitoring";
+import DeputyDirectorStatistics from "layouts/dashboard-dd/components/dd-statistics";
 
 const roleBasedRoutes = [
   {
@@ -140,6 +141,7 @@ const roleBasedRoutes = [
     path: "dd",
     routes: [
       { path: "dashboard", component: <DeputyDirectorDashboard /> },
+      { path: "statistics", component: <DeputyDirectorStatistics /> },
       { path: "add-pm", component: <DeputyDirectorAdd /> },
       { path: "pms", component: <DeputyDirectorPms /> },
       { path: "single-pm", component: <DeputyDirectorSinglePM /> },
@@ -197,6 +199,13 @@ const roleBasedRoutes = [
         key: "dd-mrs",
         icon: <Icon fontSize="small">support_agent</Icon>,
         route: "mrs",
+      },
+      {
+        type: "collapse",
+        name: "Статистика",
+        key: "dd-statistics",
+        icon: <Icon fontSize="small">bar_chart</Icon>,
+        route: "statistics",
       },
       {
         type: "collapse",
