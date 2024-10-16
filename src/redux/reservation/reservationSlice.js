@@ -119,6 +119,17 @@ export const selectFilteredReservations = (state) => {
     filtered = filtered.filter((row) => row[filters.selectedType.toLowerCase()] !== undefined);
   }
 
+  // New filter based on selected reservation type (bron or faktura)
+  if (filters.selectedDocumentType === "bron") {
+    console.log("IF");
+
+    filtered = filtered.filter((row) => row.checked === false);
+  } else if (filters.selectedDocumentType === "faktura") {
+    console.log("ELSE");
+
+    filtered = filtered.filter((row) => row.checked === true);
+  }
+
   return filtered;
 };
 

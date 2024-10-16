@@ -7,7 +7,14 @@ import InputLabel from "@mui/material/InputLabel";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import DataTable from "examples/Tables/DataTable";
-import { Autocomplete, Button, TextField } from "@mui/material";
+import {
+  Autocomplete,
+  Button,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  TextField,
+} from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setFilters,
@@ -58,6 +65,7 @@ function ReservationTable() {
   const [combinedEntities, setCombinedEntities] = useState([]);
   const { selectedMonth, selectedMedRep, selectedEntity, selectedType } = filters;
   const { accessToken, userRole } = useSelector((state) => state.auth);
+  const [selectedDocumentType, setSelectedDocumentType] = useState("bron");
 
   // Call useReservationData at the top level of the component
   const { columns, rows, expired_debt, ExpiryDateDialogComponent, SnackbarComponent } =
@@ -79,6 +87,11 @@ function ReservationTable() {
   useEffect(() => {
     combineEntities();
   }, [hospitals, pharmacies, wholesales]);
+
+  const handleDocumentTypeChange = (event) => {
+    setSelectedDocumentType(event.target.value);
+    dispatch(setFilters({ selectedDocumentType: event.target.value }));
+  };
 
   const fetchMedicalReps = async () => {
     try {
@@ -169,9 +182,26 @@ function ReservationTable() {
   return (
     <Card>
       <MDBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
-        <MDTypography variant="h6" gutterBottom>
-          Брони
-        </MDTypography>
+        {/* Custom Dropdown without a label */}
+        <FormControl variant="outlined" size="small" sx={{ minWidth: 120 }}>
+          <Select
+            value={selectedDocumentType}
+            onChange={handleDocumentTypeChange}
+            displayEmpty
+            sx={{
+              height: "40px", // Adjust the height for a sleek look
+              backgroundColor: "#f0f0f0", // Custom background color to stand out
+              borderRadius: "8px", // Rounded corners
+              "& .MuiSelect-select": {
+                padding: "8px 12px", // Custom padding for better appearance
+                fontSize: "16px", // Slightly larger font for better readability
+              },
+            }}
+          >
+            <MenuItem value="bron">Брони</MenuItem>
+            <MenuItem value="faktura">Фактура</MenuItem>
+          </Select>
+        </FormControl>
 
         {/* Wrapper for horizontal scrolling with custom scrollbar */}
         <MDBox
