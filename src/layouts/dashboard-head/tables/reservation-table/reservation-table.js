@@ -172,7 +172,31 @@ function ReservationTable() {
         <MDTypography variant="h6" gutterBottom>
           Брони
         </MDTypography>
-        <MDBox display="flex" alignItems="center" gap={2}>
+
+        {/* Wrapper for horizontal scrolling with custom scrollbar */}
+        <MDBox
+          display="flex"
+          alignItems="center"
+          gap={2}
+          p={2}
+          sx={{
+            overflowX: "auto", // Enables horizontal scrolling
+            whiteSpace: "nowrap", // Prevents wrapping of items
+            "&::-webkit-scrollbar": {
+              height: "5px", // Small height for horizontal scrollbar
+            },
+            "&::-webkit-scrollbar-track": {
+              bgcolor: "#f1f1f1", // Track color
+            },
+            "&::-webkit-scrollbar-thumb": {
+              bgcolor: "#888", // Thumb color
+              borderRadius: "4px", // Rounded edges for thumb
+            },
+            "&::-webkit-scrollbar-thumb:hover": {
+              bgcolor: "#555", // Darker color on hover
+            },
+          }}
+        >
           {/* Month Selector */}
           <FormControl variant="outlined" size="small" sx={{ minWidth: 120 }}>
             <InputLabel>Месяц</InputLabel>
@@ -238,7 +262,6 @@ function ReservationTable() {
             </Select>
           </FormControl>
 
-          {/* <MDBox mb={2} display="flex" alignItems="center"> */}
           {/* Input field */}
           <MDInput
             type="text"
@@ -249,6 +272,7 @@ function ReservationTable() {
             value={invoiceNumberInput}
             onChange={handleInvoiceInputChange}
           />
+
           {/* Small button for manual dispatch */}
           <Button
             variant="contained"
@@ -259,7 +283,6 @@ function ReservationTable() {
           >
             Поиск
           </Button>
-          {/* </MDBox> */}
 
           {/* Create Reservation Button */}
           {userRole === userRoles.HEAD_OF_ORDERS && (
