@@ -21,7 +21,7 @@ import ViewReservationHistory from "layouts/dashboard-head/dialogs/view-reservat
 import axios from "axios";
 import { updateReservationExpiryDate } from "../../../../../redux/reservation/reservationSlice"; // Update with the actual path
 
-export default function useReservationData() {
+export default function useReservationData(checked) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -35,6 +35,7 @@ export default function useReservationData() {
   const [selectedReservation, setSelectedReservation] = useState(null);
   const [snackbar, setSnackbar] = useState({ open: false, message: "", severity: "success" });
   const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [reservation, setReservation] = useState({});
   const [productListDialogOpen, setProductListDialogOpen] = useState(false);
   const filteredReservations = useSelector(selectFilteredReservations);
@@ -69,6 +70,10 @@ export default function useReservationData() {
       fetchReservations(selectedMonth); // Pass selectedMonth to the fetch function
     }
   }, [accessToken, selectedMonth]);
+
+  useEffect(() => {
+    fetchReservations();
+  }, [checked]);
 
   const handleCloseSnackbar = () => {
     setSnackbar({ ...snackbar, open: false });
@@ -120,6 +125,7 @@ export default function useReservationData() {
   };
 
   async function fetchReservations() {
+    setIsLoading(true);
     try {
       const apiPath = !selectedMonth
         ? "head/get-all-reservations"
@@ -139,10 +145,16 @@ export default function useReservationData() {
       //   return b.id - a.id;
       // });
 
+      const data = response.data.filter((data) => data.checked === checked);
+
       // Store the fetched reservations in Redux
-      dispatch(setReservations(response.data));
+      dispatch(setReservations(data));
     } catch (error) {
       console.error("Error fetching reservations", error);
+
+      setIsLoading(false);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -217,6 +229,7 @@ export default function useReservationData() {
 
     return columns;
   };
+
   const constructRows = () => {
     return sortedReservations.map((rsrv) => {
       const entity = rsrv.pharmacy || rsrv.hospital || rsrv.wholesale;
@@ -667,6 +680,7 @@ export default function useReservationData() {
         </Alert>
       </Snackbar>
     ),
+    isLoading,
   };
 }
 

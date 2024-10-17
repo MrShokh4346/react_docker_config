@@ -48,6 +48,7 @@ import HeadOfOrdersDashboard from "layouts/dashboard-head";
 import HeadOfOrdersFactoryWarehouses from "layouts/dashboard-head/components/head-factory-warehouses";
 import HeadofOrdersAddWarehouseData from "layouts/dashboard-head/components/head-add-warehouse-data";
 import HeadReservations from "layouts/dashboard-head/components/head-reservations";
+import HeadInvoices from "layouts/dashboard-head/components/head-invoices";
 import WholesaleReports from "layouts/dashboard-ws/components/ws-reports";
 import WholesaleReportDetails from "layouts/dashboard-ws/components/ws-report-details";
 import WholesaleAddSale from "layouts/dashboard-ws/components/ws-add-sale";
@@ -180,6 +181,7 @@ const roleBasedRoutes = [
       { path: "add-bonus", component: <DeputyDirectorAddBonus /> },
       { path: "doctors", component: <DeputyDirectorDoctors /> },
       { path: "reservations", component: <HeadReservations /> },
+      { path: "invoices", component: <HeadInvoices /> },
       { path: "doctors-data", component: <DeputyDirectorDoctorDatabase /> },
       { path: "debts", component: <DeputyDirectorDebts /> },
       { path: "mrs-monitoring", component: <DeputyDirectorMrsMonitoring /> },
@@ -276,6 +278,13 @@ const roleBasedRoutes = [
         key: "dd-reservations",
         icon: <Icon fontSize="small">book_online_icon</Icon>,
         route: "reservations",
+      },
+      {
+        type: "collapse",
+        name: "Фактура",
+        key: "dd-invoices",
+        icon: <Icon fontSize="small">texture</Icon>,
+        route: "invoices",
       },
       {
         type: "collapse",
