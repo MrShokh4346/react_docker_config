@@ -14,15 +14,16 @@ import ReservationTable from "../tables/reservation-table/reservation-table";
 // import DeputyDirectorTable from "../table";
 
 // eslint-disable-next-line react/prop-types
-function HeadReservations({ children }) {
+function HeadInvoices({ children }) {
   const navigate = useNavigate();
+
   return (
     <DashboardLayout>
       <MDBox py={3}>
         <MDBox>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={12}>
-              <ReservationTable isCheckStatus={true} />
+              <ReservationTable isCheckStatus={false} />
             </Grid>
           </Grid>
         </MDBox>
@@ -32,4 +33,4 @@ function HeadReservations({ children }) {
   );
 }
 
-export default HeadReservations;
+export default HeadInvoices;
