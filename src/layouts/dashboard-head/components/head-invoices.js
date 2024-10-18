@@ -11,6 +11,7 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 // Dashboard components
 import { Outlet, useNavigate } from "react-router-dom";
 import ReservationTable from "../tables/reservation-table/reservation-table";
+import MDTypography from "components/MDTypography";
 // import DeputyDirectorTable from "../table";
 
 // eslint-disable-next-line react/prop-types
@@ -23,7 +24,7 @@ function HeadInvoices({ children }) {
         <MDBox>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={12}>
-              <ReservationTable isCheckStatus={false} />
+              <ReservationTable isCheckStatus={true} />
             </Grid>
           </Grid>
         </MDBox>
