@@ -78,6 +78,7 @@ import DeputyDirectorDebts from "layouts/dashboard-dd/components/dd-debts";
 import DeputyDirectorMrsMonitoring from "layouts/dashboard-dd/components/dd-mr-monitoring";
 import DeputyDirectorLoginMonitoring from "layouts/dashboard-dd/components/dd-monitoring";
 import DeputyDirectorStatistics from "layouts/dashboard-dd/components/dd-statistics";
+import PharmacyInventory from "layouts/dashboard-pharmacy";
 
 const roleBasedRoutes = [
   {
@@ -184,6 +185,7 @@ const roleBasedRoutes = [
       { path: "debts", component: <DeputyDirectorDebts /> },
       { path: "mrs-monitoring", component: <DeputyDirectorMrsMonitoring /> },
       { path: "login-monitoring", component: <DeputyDirectorLoginMonitoring /> },
+      { path: "pharmacy-inventory", component: <PharmacyInventory /> },
     ],
     sideNav: [
       {
@@ -304,6 +306,13 @@ const roleBasedRoutes = [
         key: "dd-mrs-monitoring",
         icon: <Icon fontSize="small">calendar_month</Icon>,
         route: "mrs-monitoring",
+      },
+      {
+        type: "collapse",
+        name: "Остаток аптеки",
+        key: "dd-inventory",
+        icon: <Icon fontSize="small">inventory</Icon>,
+        route: "pharmacy-inventory",
       },
     ],
   },
