@@ -38,9 +38,9 @@ const SubBarChart = () => {
           show: false,
         },
         title: {
-          text: "Medpristavitellar ismi",
+          text: "Имя сопровождающего",
           style: {
-            fontSize: "24px",
+            fontSize: "20px",
           },
         },
         xaxis: {

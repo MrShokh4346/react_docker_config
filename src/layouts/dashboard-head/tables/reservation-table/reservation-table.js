@@ -22,6 +22,7 @@ import OverallReservationValues from "layouts/dashboard-dd/elements/overall-rese
 import userRoles from "constants/userRoles";
 import MDInput from "components/MDInput";
 import PropTypes from "prop-types";
+import MDTypography from "components/MDTypography";
 
 // Memoized DataTable component
 const MemoizedDataTable = memo(DataTable);
@@ -193,6 +194,10 @@ function ReservationTable({ isCheckStatus }) {
           },
         }}
       >
+        <MDTypography variant="h6" gutterBottom>
+          {isCheckStatus ? "Фактура" : "Брони"}
+        </MDTypography>
+
         {/* Month Selector */}
         <FormControl variant="outlined" size="small" sx={{ minWidth: 120 }}>
           <InputLabel>Месяц</InputLabel>
@@ -295,7 +300,10 @@ function ReservationTable({ isCheckStatus }) {
         )}
       </MDBox>
 
-      <OverallReservationValues overall={{ expired_debt, rows: memoizedRows }} />
+      <OverallReservationValues
+        checked={isCheckStatus}
+        overall={{ expired_debt, rows: memoizedRows }}
+      />
 
       {isLoading ? (
         <MDBox display="flex" justifyContent="center" alignItems="center" p={3}>

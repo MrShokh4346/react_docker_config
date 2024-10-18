@@ -22,7 +22,7 @@ function HeadReservations({ children }) {
         <MDBox>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={12}>
-              <ReservationTable isCheckStatus={true} />
+              <ReservationTable />
             </Grid>
           </Grid>
         </MDBox>

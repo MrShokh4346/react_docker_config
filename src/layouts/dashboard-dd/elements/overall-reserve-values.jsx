@@ -7,15 +7,16 @@ import PromoDropdown from "./promo-dropdown";
 import UncheckedDebitorDropdown from "./unchecked-debitor-dropdown";
 import ExpiredDebitorDropdown from "./expired-debitor-dropdown";
 import { selectFilteredReservations } from "../../../redux/reservation/reservationSlice"; // Import the selector
+import PropTypes from "prop-types";
 
-const OverallReservationValues = () => {
+const OverallReservationValues = ({ checked }) => {
   // Get filtered rows from the Redux store
   const filteredRows = useSelector(selectFilteredReservations);
 
   // Calculate number of invoices and total invoice amount
-  const numberOfInvoices = filteredRows.filter((row) => row.checked).length;
+  const numberOfInvoices = filteredRows.filter((row) => row.checked === checked).length;
   const invoiceAmount = filteredRows.reduce(
-    (sum, row) => sum + (row.checked ? row.total_payable_with_nds || 0 : 0),
+    (sum, row) => sum + (row?.checked === checked ? row.total_payable_with_nds || 0 : 0),
     0
   );
 
@@ -70,6 +71,10 @@ const OverallReservationValues = () => {
       </Grid>
     </Box>
   );
+};
+
+OverallReservationValues.propTypes = {
+  checked: PropTypes.bool,
 };
 
 export default OverallReservationValues;

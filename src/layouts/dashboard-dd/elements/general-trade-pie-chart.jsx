@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import axiosInstance from "services/axiosInstance";
+
 const GeneralTradePieChart = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -37,19 +38,25 @@ const GeneralTradePieChart = () => {
     },
     labels: Object.keys(filteredData),
 
-    responsive: [
-      {
-        breakpoint: 480,
-        options: {
-          chart: {
-            width: 200,
-          },
-          legend: {
-            position: "bottom",
-          },
-        },
+    // responsive: [
+    //   {
+    //     breakpoint: 480,
+    //     options: {
+    //       chart: {
+    //         width: 200,
+    //       },
+    //       legend: {
+    //         position: "bottom",
+    //       },
+    //     },
+    //   },
+    // ],
+    title: {
+      text: "",
+      style: {
+        fontSize: "20px",
       },
-    ],
+    },
     tooltip: {
       y: {
         formatter: function (val) {
