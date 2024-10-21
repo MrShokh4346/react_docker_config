@@ -4,11 +4,13 @@ import axiosInstance from "services/axiosInstance";
 import MDTypography from "components/MDTypography";
 import { setMedRepsData } from "../../../../redux/mrs/mrsSlice";
 import { useNavigate } from "react-router-dom";
+import userRoles from "constants/userRoles";
 
 export default function useMrsMonitoringData(onRowClick) {
   const [data, setData] = useState({ columns: [], rows: [] });
   const accessToken = useSelector((state) => state.auth.accessToken);
   const medRepsFromRedux = useSelector((state) => state.mrs.medReps);
+  const userRole = useSelector((state) => state.auth.userRole);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,7 +35,9 @@ export default function useMrsMonitoringData(onRowClick) {
         ),
         // Add onClick event to make the row clickable
         onClick: () => {
-          navigate("/dd/login-monitoring", { state: rep.id }); // Pass the rep data to the onRowClick handler
+          navigate(userRole === userRoles.HR ? "/hr/login-monitoring" : "/dd/login-monitoring", {
+            state: rep.id,
+          }); // Pass the rep data to the onRowClick handler
         },
       }));
 
@@ -73,7 +77,10 @@ export default function useMrsMonitoringData(onRowClick) {
             ),
             // Add onClick event to make the row clickable
             onClick: () => {
-              navigate("/dd/login-monitoring", { state: rep.id }); // Pass the rep data to the onRowClick handler
+              navigate(
+                userRole === userRoles.HR ? "/hr/login-monitoring" : "/dd/login-monitoring",
+                { state: rep.id }
+              ); // Pass the rep data to the onRowClick handler
             },
           }));
 

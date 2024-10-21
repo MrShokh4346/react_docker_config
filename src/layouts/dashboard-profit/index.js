@@ -1,8 +1,9 @@
-import { Autocomplete, Grid, TextField, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Autocomplete, CircularProgress, Grid, TextField, Typography } from "@mui/material";
+import Card from "@mui/material/Card";
 import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardProfitTable from "./components/DashboardProfitComponents";
-import { useEffect, useState } from "react";
 
 const russianMonths = [
   "Январь",
@@ -27,6 +28,7 @@ const DashboardProfit = () => {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [medReps, setMedReps] = useState([]);
   const [selectedMedRep, setSelectedMedRep] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   console.log("====================================");
   console.log(filteredData);
@@ -55,6 +57,7 @@ const DashboardProfit = () => {
   }, [profitData]);
 
   const fetchData = (monthNumber = "") => {
+    setLoading(true);
     const url = monthNumber
       ? `https://it-club.uz/head/get-postupleniya?month_number=${monthNumber}`
       : "https://it-club.uz/head/get-postupleniya";
@@ -64,8 +67,14 @@ const DashboardProfit = () => {
       .then((data) => {
         setProfitData(data);
         setFilteredData(data);
+
+        setLoading(false);
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+
+        setLoading(false);
+      });
   };
 
   const handleMonthChange = (event, newValue) => {
@@ -111,55 +120,66 @@ const DashboardProfit = () => {
   return (
     <DashboardLayout>
       <MDBox py={3}>
-        <Grid container spacing={2} mb={4} alignItems="center">
-          <Grid item xs={3}>
-            <Typography variant="h6" fontWeight="medium">
-              Общая сумма поступлений:{" "}
-              {filteredData.reduce((sum, item) => sum + item.amount, 0).toLocaleString("ru-RU")} сум
-            </Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <Autocomplete
-              options={russianMonths}
-              value={selectedMonth}
-              onChange={handleMonthChange}
-              renderInput={(params) => (
-                <TextField {...params} label="Месяц" variant="outlined" size="small" />
-              )}
-              sx={{ minWidth: 200 }}
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <Autocomplete
-              options={companies}
-              getOptionLabel={(option) => option.name}
-              value={selectedCompany}
-              onChange={handleCompanyChange}
-              renderInput={(params) => (
-                <TextField {...params} label="Компании" variant="outlined" size="small" />
-              )}
-              sx={{ minWidth: 200 }}
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <Autocomplete
-              options={medReps}
-              getOptionLabel={(option) => option.full_name}
-              value={selectedMedRep}
-              onChange={handleMedRepChange}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Медицинские представители"
-                  variant="outlined"
-                  size="small"
+        <Card>
+          <MDBox p={2}>
+            <Grid container spacing={2} mb={2} alignItems="center">
+              <Grid item xs={3}>
+                <Typography variant="h6" fontWeight="medium">
+                  Общая сумма поступлений:{" "}
+                  {filteredData.reduce((sum, item) => sum + item.amount, 0).toLocaleString("ru-RU")}{" "}
+                  сум
+                </Typography>
+              </Grid>
+              <Grid item xs={3}>
+                <Autocomplete
+                  options={russianMonths}
+                  value={selectedMonth}
+                  onChange={handleMonthChange}
+                  renderInput={(params) => (
+                    <TextField {...params} label="Месяц" variant="outlined" size="small" />
+                  )}
+                  sx={{ minWidth: 200 }}
                 />
-              )}
-              sx={{ minWidth: 200 }}
-            />
-          </Grid>
-        </Grid>
-        <DashboardProfitTable data={filteredData} />
+              </Grid>
+              <Grid item xs={3}>
+                <Autocomplete
+                  options={companies}
+                  getOptionLabel={(option) => option.name}
+                  value={selectedCompany}
+                  onChange={handleCompanyChange}
+                  renderInput={(params) => (
+                    <TextField {...params} label="Компании" variant="outlined" size="small" />
+                  )}
+                  sx={{ minWidth: 200 }}
+                />
+              </Grid>
+              <Grid item xs={3}>
+                <Autocomplete
+                  options={medReps}
+                  getOptionLabel={(option) => option.full_name}
+                  value={selectedMedRep}
+                  onChange={handleMedRepChange}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="Медицинские представители"
+                      variant="outlined"
+                      size="small"
+                    />
+                  )}
+                  sx={{ minWidth: 200 }}
+                />
+              </Grid>
+            </Grid>
+          </MDBox>
+          {loading ? (
+            <MDBox display="flex" justifyContent="center" alignItems="center" p={3}>
+              <CircularProgress />
+            </MDBox>
+          ) : (
+            <DashboardProfitTable data={filteredData} />
+          )}
+        </Card>
       </MDBox>
     </DashboardLayout>
   );

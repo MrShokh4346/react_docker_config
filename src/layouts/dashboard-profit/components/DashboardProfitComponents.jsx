@@ -66,9 +66,9 @@ const DashboardProfitTable = ({ data }) => {
   );
 };
 
-export default DashboardProfitTable;
-
 DashboardProfitTable.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   value: PropTypes.string,
 };
+
+export default DashboardProfitTable;
