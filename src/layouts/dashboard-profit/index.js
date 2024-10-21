@@ -1,4 +1,4 @@
-import { Autocomplete, Grid, TextField } from "@mui/material";
+import { Autocomplete, Grid, TextField, Typography } from "@mui/material";
 import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardProfitTable from "./components/DashboardProfitComponents";
@@ -27,6 +27,10 @@ const DashboardProfit = () => {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [medReps, setMedReps] = useState([]);
   const [selectedMedRep, setSelectedMedRep] = useState(null);
+
+  console.log("====================================");
+  console.log(filteredData);
+  console.log("====================================");
 
   useEffect(() => {
     fetchData();
@@ -107,8 +111,14 @@ const DashboardProfit = () => {
   return (
     <DashboardLayout>
       <MDBox py={3}>
-        <Grid container spacing={2} mb={3}>
-          <Grid item xs={12} md={4}>
+        <Grid container spacing={2} mb={4} alignItems="center">
+          <Grid item xs={3}>
+            <Typography variant="h6" fontWeight="medium">
+              Общая сумма поступлений:{" "}
+              {filteredData.reduce((sum, item) => sum + item.amount, 0).toLocaleString("ru-RU")} сум
+            </Typography>
+          </Grid>
+          <Grid item xs={3}>
             <Autocomplete
               options={russianMonths}
               value={selectedMonth}
@@ -119,7 +129,7 @@ const DashboardProfit = () => {
               sx={{ minWidth: 200 }}
             />
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={3}>
             <Autocomplete
               options={companies}
               getOptionLabel={(option) => option.name}
@@ -131,7 +141,7 @@ const DashboardProfit = () => {
               sx={{ minWidth: 200 }}
             />
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={3}>
             <Autocomplete
               options={medReps}
               getOptionLabel={(option) => option.full_name}
