@@ -7,6 +7,8 @@ const userRoles = Object.freeze({
   MEDICAL_REPRESENTATIVE: "medical_representative",
   WHOLESALE_MANAGER: "wholesale_manager",
   HEAD_OF_ORDERS: "head_of_orders",
+  HR: "hr",
+  FINANCIER: "financier",
 });
 
 export default userRoles;

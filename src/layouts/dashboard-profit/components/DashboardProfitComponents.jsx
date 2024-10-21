@@ -62,13 +62,14 @@ const DashboardProfitTable = ({ data }) => {
       table={{ columns, rows: data }}
       entriesPerPage={{ defaultValue: 1000 }}
       noEndBorder
+      loading={true}
     />
   );
 };
-
-export default DashboardProfitTable;
 
 DashboardProfitTable.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   value: PropTypes.string,
 };
+
+export default DashboardProfitTable;
