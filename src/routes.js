@@ -80,6 +80,7 @@ import DeputyDirectorMrsMonitoring from "layouts/dashboard-dd/components/dd-mr-m
 import DeputyDirectorLoginMonitoring from "layouts/dashboard-dd/components/dd-monitoring";
 import DeputyDirectorStatistics from "layouts/dashboard-dd/components/dd-statistics";
 import PharmacyInventory from "layouts/dashboard-pharmacy";
+import DashboardProfit from "layouts/dashboard-profit";
 
 const roleBasedRoutes = [
   {
@@ -188,6 +189,7 @@ const roleBasedRoutes = [
       { path: "mrs-monitoring", component: <DeputyDirectorMrsMonitoring /> },
       { path: "login-monitoring", component: <DeputyDirectorLoginMonitoring /> },
       { path: "pharmacy-inventory", component: <PharmacyInventory /> },
+      { path: "profit", component: <DashboardProfit /> },
     ],
     sideNav: [
       {
@@ -322,6 +324,13 @@ const roleBasedRoutes = [
         key: "dd-inventory",
         icon: <Icon fontSize="small">inventory</Icon>,
         route: "pharmacy-inventory",
+      },
+      {
+        type: "collapse",
+        name: "Прибыль",
+        key: "dd-profit",
+        icon: <Icon fontSize="small">bar_chart</Icon>,
+        route: "profit",
       },
     ],
   },
