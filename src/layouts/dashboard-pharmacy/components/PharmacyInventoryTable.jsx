@@ -20,6 +20,7 @@ const PharmacyInventoryTable = ({ data }) => {
     { Header: "", accessor: "expander", width: "50px" },
     { Header: "Контр Агент", accessor: "company_name" },
     { Header: "Регион", accessor: "region" },
+    { Header: "МедПред", accessor: "med_rep" },
     { Header: "Общ.коль", accessor: "total_amount" },
   ];
 
@@ -43,6 +44,7 @@ const PharmacyInventoryTable = ({ data }) => {
         index: index + 1,
         company_name: item.company_name,
         region: item.region.name,
+        med_rep: item.med_rep.full_name,
         total_amount: item.currntbalanceinstock.reduce((sum, stock) => sum + stock.amount, 0),
         rowBackgroundColor: expandedRows[item.id] ? "#f0f0f0" : "#fff",
       });
@@ -81,7 +83,7 @@ const PharmacyInventoryTable = ({ data }) => {
           showTotalEntries={false}
           isSorted={false}
           noEndBorder
-          entriesPerPage={{ defaultValue: 100 }}
+          entriesPerPage={{ defaultValue: 1000 }}
           getRowProps={(row) => ({
             style: {
               backgroundColor: row.original.rowBackgroundColor,
