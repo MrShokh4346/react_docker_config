@@ -44,7 +44,7 @@ function HeadSetInvoiceNumber() {
 
     try {
       const response = await axiosInstance.put(
-        `https://it-club.uz/head/edit-${type}-reservation-invoice-number/${reservationId}?invoice_number=${invoiceNumber}`,
+        `http://localhost:8000/head/edit-${type}-reservation-invoice-number/${reservationId}?invoice_number=${invoiceNumber}`,
         {},
         {
           headers: {

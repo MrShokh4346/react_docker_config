@@ -53,7 +53,7 @@ function HeadPayReservationHospital() {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await axios.get("https://it-club.uz/mr/get-doctors", {
+        const response = await axios.get("http://localhost:8000/mr/get-doctors", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

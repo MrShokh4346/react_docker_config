@@ -41,7 +41,7 @@ function ProductManagerAdd() {
     try {
       // Call the API with authorization header
       const response = await axios.post(
-        "https://it-club.uz/pm/register-for-pm",
+        "http://localhost:8000/pm/register-for-pm",
         userData,
         {
           headers: {

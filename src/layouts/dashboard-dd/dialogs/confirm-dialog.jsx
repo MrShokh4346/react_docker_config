@@ -15,7 +15,7 @@ const ConfirmDialog = React.memo(({ isOpen, onClose, planId, planType, onDelete 
     if (planId) {
       event.stopPropagation(); // Stop the row click event from being triggered
       try {
-        await axiosInstance.delete(`https://it-club.uz/dd/delete-${planType}/${planId}`, {
+        await axiosInstance.delete(`http://localhost:8000/dd/delete-${planType}/${planId}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

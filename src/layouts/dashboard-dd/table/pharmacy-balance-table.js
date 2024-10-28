@@ -13,7 +13,7 @@ const PharmacyBalanceInStockTable = ({ pharmacyId }) => {
     if (pharmacyId) {
       setLoading(true);
       axios
-        .get(`https://it-club.uz/mr/get-balnce-in-stock/${pharmacyId}`)
+        .get(`http://localhost:8000/mr/get-balnce-in-stock/${pharmacyId}`)
         .then((response) => {
           setBalanceInStock(response.data);
           setLoading(false);

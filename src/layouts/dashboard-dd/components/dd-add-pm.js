@@ -41,7 +41,7 @@ function DeputyDirectorAdd() {
 
     try {
       // Call the API with authorization header
-      const response = await axios.post("https://it-club.uz/dd/register-for-dd", userData, {
+      const response = await axios.post("http://localhost:8000/dd/register-for-dd", userData, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

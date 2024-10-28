@@ -8,7 +8,7 @@ const PharmacyInventory = () => {
 
   useEffect(() => {
     // Fetch data from the API
-    fetch("https://it-club.uz/mr/get-pharmacy-warehouse")
+    fetch("http://localhost:8000/mr/get-pharmacy-warehouse")
       .then((response) => response.json())
       .then((data) => setInventoryData(data))
       .catch((error) => console.error("Error fetching data:", error));

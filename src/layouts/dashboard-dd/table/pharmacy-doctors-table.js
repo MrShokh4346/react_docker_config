@@ -12,7 +12,7 @@ const PharmacyDoctorsListTable = ({ pharmacyId }) => {
     if (pharmacyId) {
       setLoading(true);
       axios
-        .get(`https://it-club.uz/mr/get-pharmacy-doctors-list/${pharmacyId}`)
+        .get(`http://localhost:8000/mr/get-pharmacy-doctors-list/${pharmacyId}`)
         .then((response) => {
           setDoctors(response.data);
           setLoading(false);

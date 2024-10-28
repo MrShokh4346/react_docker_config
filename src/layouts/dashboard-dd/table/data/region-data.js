@@ -27,7 +27,7 @@ export default function useRegionData(apiPath) {
   const handleSubmit = async (updatedRegion) => {
     try {
       const response = await axiosInstance.put(
-        `https://it-club.uz/common/update-region/${updatedRegion.id}?name=${updatedRegion.name}`,
+        `http://localhost:8000/common/update-region/${updatedRegion.id}?name=${updatedRegion.name}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

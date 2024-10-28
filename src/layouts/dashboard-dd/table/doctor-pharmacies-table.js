@@ -12,7 +12,7 @@ const AttachedPharmaciesTable = ({ doctorId }) => {
     if (doctorId) {
       setLoading(true);
       axios
-        .get(`https://it-club.uz/mr/get-doctor-pharmacies-list/${doctorId}`)
+        .get(`http://localhost:8000/mr/get-doctor-pharmacies-list/${doctorId}`)
         .then((response) => {
           setPharmacies(response.data);
           setLoading(false);

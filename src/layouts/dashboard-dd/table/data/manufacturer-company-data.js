@@ -26,7 +26,7 @@ export default function useManufacturerCompanyData(apiPath) {
   const handleSubmit = async (updatedMnfct) => {
     try {
       const response = await axiosInstance.put(
-        `https://it-club.uz/common/update-manufactured-company/${updatedMnfct.id}?name=${updatedMnfct.name}`,
+        `http://localhost:8000/common/update-manufactured-company/${updatedMnfct.id}?name=${updatedMnfct.name}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

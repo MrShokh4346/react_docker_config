@@ -59,7 +59,7 @@ function DeputyDirectorAddPharmacy() {
   useEffect(() => {
     const fetchRegions = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-regions`, {
+        const response = await axios.get(`http://localhost:8000/common/get-regions`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -87,7 +87,7 @@ function DeputyDirectorAddPharmacy() {
 
     try {
       const response = await axios.post(
-        `https://it-club.uz/mr/add-pharmacy?user_id=${id}`,
+        `http://localhost:8000/mr/add-pharmacy?user_id=${id}`,
         {
           ...pharmacyData,
           latitude: latitude.toString(),

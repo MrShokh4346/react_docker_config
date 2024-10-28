@@ -29,7 +29,7 @@ function DeputyDirectorAddRegion() {
 
     try {
       // Call the API with authorization header
-      const response = await axios.post(`https://it-club.uz/common/add-region?name=${name}`, {
+      const response = await axios.post(`http://localhost:8000/common/add-region?name=${name}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

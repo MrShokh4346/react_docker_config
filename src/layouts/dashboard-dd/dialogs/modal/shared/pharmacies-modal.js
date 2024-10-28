@@ -59,12 +59,12 @@ const PharmaciesModal = ({ open, handleClose, handleSubmit, pharmaciesToUpdate }
   const fetchRegionsAndReps = async () => {
     try {
       const [repsResponse, regionsResponse] = await Promise.all([
-        axiosInstance.get("https://it-club.uz/common/get-users", {
+        axiosInstance.get("http://localhost:8000/common/get-users", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         }),
-        axiosInstance.get("https://it-club.uz/common/get-regions", {
+        axiosInstance.get("http://localhost:8000/common/get-regions", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

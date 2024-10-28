@@ -50,7 +50,7 @@ const VisitDialog = React.memo(({ open, onClose, visitId, visitType }) => {
       const fetchVisitData = async () => {
         try {
           const response = await axios.get(
-            `https://it-club.uz/mr/get-${visitType}-visit-plan/${visitId}`,
+            `http://localhost:8000/mr/get-${visitType}-visit-plan/${visitId}`,
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`,

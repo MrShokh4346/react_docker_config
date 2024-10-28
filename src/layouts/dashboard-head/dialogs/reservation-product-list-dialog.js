@@ -51,8 +51,8 @@ const ViewProductListDialog = ({ open, handleClose, reservation }) => {
     try {
       const response = await axiosInstance.get(
         type === "wholesale"
-          ? `https://it-club.uz/ws/get-wholesale-reservation-products/${id}`
-          : `https://it-club.uz/mr/get-${type === "pharmacy" ? "" : `${type}-`}reservation/${id}`
+          ? `http://localhost:8000/ws/get-wholesale-reservation-products/${id}`
+          : `http://localhost:8000/mr/get-${type === "pharmacy" ? "" : `${type}-`}reservation/${id}`
       );
       setProductList(response.data);
     } catch (error) {
@@ -62,7 +62,7 @@ const ViewProductListDialog = ({ open, handleClose, reservation }) => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axiosInstance.get("https://it-club.uz/dd/get-products");
+      const response = await axiosInstance.get("http://localhost:8000/dd/get-products");
       setProducts(response.data);
     } catch (error) {
       console.error("Failed to fetch products", error);
@@ -113,7 +113,7 @@ const ViewProductListDialog = ({ open, handleClose, reservation }) => {
         quantity: newProductQuantity,
         reservation_id: reservation.id,
       };
-      await axiosInstance.post("https://it-club.uz/head/add-reservation-product", payload);
+      await axiosInstance.post("http://localhost:8000/head/add-reservation-product", payload);
       fetchProductList(reservation.id, reservation.type); // Refresh the product list after adding a product
       setAddingNewProduct(false); // Exit add new product mode
       setNewProduct(null); // Clear the product selection

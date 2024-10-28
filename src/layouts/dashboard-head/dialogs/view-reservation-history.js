@@ -26,8 +26,8 @@ const ViewReservationHistory = ({ open, handleClose, reservation }) => {
     try {
       const { data } = await axiosInstance.get(
         reservation.type === "wholesale"
-          ? `https://it-club.uz/ws/get-wholesale-reservation-history/${reservation.id}`
-          : `https://it-club.uz/mr/get-${
+          ? `http://localhost:8000/ws/get-wholesale-reservation-history/${reservation.id}`
+          : `http://localhost:8000/mr/get-${
               reservation.type === "pharmacy" ? "" : `${reservation.type}-`
             }reservation-history/${reservation.id}`,
         {

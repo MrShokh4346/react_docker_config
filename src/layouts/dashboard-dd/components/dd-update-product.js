@@ -65,7 +65,7 @@ function DeputyDirectorUpdateProduct() {
 
     try {
       await axiosInstance.put(
-        `https://it-club.uz/common/update-product/${updatedProduct.id}`,
+        `http://localhost:8000/common/update-product/${updatedProduct.id}`,
         updatedProduct,
         {
           headers: {

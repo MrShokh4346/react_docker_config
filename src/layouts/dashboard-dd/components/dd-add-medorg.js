@@ -47,7 +47,7 @@ function DeputyDirectorAddMedOrganization() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-users`, {
+        const response = await axios.get(`http://localhost:8000/common/get-users`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -67,7 +67,7 @@ function DeputyDirectorAddMedOrganization() {
   useEffect(() => {
     const fetchRegions = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-regions`, {
+        const response = await axios.get(`http://localhost:8000/common/get-regions`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -99,7 +99,7 @@ function DeputyDirectorAddMedOrganization() {
 
     try {
       const response = await axios.post(
-        "https://it-club.uz/common/add-medical-organization",
+        "http://localhost:8000/common/add-medical-organization",
         {
           name,
           address,

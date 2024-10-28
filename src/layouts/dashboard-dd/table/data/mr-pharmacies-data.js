@@ -35,7 +35,7 @@ export default function usePharmacyData(apiPath, onRowClick) {
   const handleSubmit = async (updatedPharmecy) => {
     try {
       const response = await axiosInstance.patch(
-        `https://it-club.uz/mr/update-pharmacy/${updatedPharmecy.id}`,
+        `http://localhost:8000/mr/update-pharmacy/${updatedPharmecy.id}`,
         updatedPharmecy,
         {
           headers: {

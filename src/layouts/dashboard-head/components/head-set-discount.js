@@ -43,7 +43,7 @@ function HeadSetDiscount() {
 
     try {
       const response = await axiosInstance.post(
-        `https://it-club.uz/head/update-${
+        `http://localhost:8000/head/update-${
           type === "pharmacy" ? "" : `${type}-`
         }reservation-discount/${reservationId}?discount=${discountRate}`,
         {},

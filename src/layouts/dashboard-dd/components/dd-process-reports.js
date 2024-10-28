@@ -34,7 +34,7 @@ function DeputyDirectorProcessReport() {
     const monthName = months.find((m) => m.value === month).name;
     try {
       const response = await axios.get(
-        `https://it-club.uz/dd/get-proccess-report-ecxel?month=${month}`,
+        `http://localhost:8000/dd/get-proccess-report-ecxel?month=${month}`,
         {
           responseType: "blob",
           headers: {

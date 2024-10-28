@@ -41,7 +41,7 @@ function DeputyDirectorAddProduct() {
   useEffect(() => {
     const fetchManufacturerCompanies = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-manufactured-company`, {
+        const response = await axios.get(`http://localhost:8000/common/get-manufactured-company`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -59,7 +59,7 @@ function DeputyDirectorAddProduct() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-product-category`, {
+        const response = await axios.get(`http://localhost:8000/common/get-product-category`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -88,7 +88,7 @@ function DeputyDirectorAddProduct() {
 
     try {
       // Call the API with authorization header
-      const response = await axios.post("https://it-club.uz/common/add-product", productData, {
+      const response = await axios.post("http://localhost:8000/common/add-product", productData, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

@@ -21,7 +21,7 @@ function PlanModal({ open, handleClose, planToUpdate }) {
     e.preventDefault();
     try {
       const response = await axiosInstance.put(
-        `https://it-club.uz/dd/update-user-product-plan/${planToUpdate.plan_id}?amount=${plan_amount}`,
+        `http://localhost:8000/dd/update-user-product-plan/${planToUpdate.plan_id}?amount=${plan_amount}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

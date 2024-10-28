@@ -27,7 +27,7 @@ export default function useSpecialityData(apiPath) {
   const handleSubmit = async (updatedSpeciality) => {
     try {
       const response = await axiosInstance.put(
-        `https://it-club.uz/common/update-speciality/${updatedSpeciality.id}?name=${updatedSpeciality.name}`,
+        `http://localhost:8000/common/update-speciality/${updatedSpeciality.id}?name=${updatedSpeciality.name}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

@@ -34,7 +34,7 @@ function HeadPayReservation() {
 
     try {
       const response = await axios.post(
-        `https://it-club.uz/head/pay${type}-reservation/${reservation_id}`,
+        `http://localhost:8000/head/pay${type}-reservation/${reservation_id}`,
         { amount, description },
         {
           headers: {

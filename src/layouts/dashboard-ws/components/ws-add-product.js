@@ -32,7 +32,7 @@ function WholesaleManagerAddProduct() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-product`, {
+        const response = await axios.get(`http://localhost:8000/common/get-product`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -50,7 +50,7 @@ function WholesaleManagerAddProduct() {
   useEffect(() => {
     const fetchFactories = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-manufactured-company`, {
+        const response = await axios.get(`http://localhost:8000/common/get-manufactured-company`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -77,7 +77,7 @@ function WholesaleManagerAddProduct() {
 
     try {
       const response = await axios.post(
-        `https://it-club.uz/ws/wholesale-add-product/${wholesale_id}`,
+        `http://localhost:8000/ws/wholesale-add-product/${wholesale_id}`,
         productData,
         {
           headers: {

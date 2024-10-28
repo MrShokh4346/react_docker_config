@@ -65,7 +65,7 @@ export default function useDebtData(apiPath, month) {
     const type = getRsrvType(selectedReservation);
     try {
       await axiosInstance.post(
-        `https://it-club.uz/head/update-${
+        `http://localhost:8000/head/update-${
           type === "pharmacy" ? "" : `${type}-`
         }reservation-expire-date/${selectedReservation.id}`,
         { date: newDate },
@@ -474,13 +474,13 @@ export default function useDebtData(apiPath, month) {
 
       switch (type) {
         case "pharmacy":
-          url = `https://it-club.uz/head/delete-reservation/${rsrv.id}`;
+          url = `http://localhost:8000/head/delete-reservation/${rsrv.id}`;
           break;
         case "wholesale":
-          url = `https://it-club.uz/head/delete-wholesale-reservation/${rsrv.id}`;
+          url = `http://localhost:8000/head/delete-wholesale-reservation/${rsrv.id}`;
           break;
         case "hospital":
-          url = `https://it-club.uz/head/delete-hospital-reservation/${rsrv.id}`;
+          url = `http://localhost:8000/head/delete-hospital-reservation/${rsrv.id}`;
           break;
       }
 
@@ -566,7 +566,7 @@ export default function useDebtData(apiPath, month) {
     const type = getRsrvType(rsrv);
     try {
       await axiosInstance.post(
-        `https://it-club.uz/head/check-${type === "pharmacy" ? "" : `${type}-`}reservation/${
+        `http://localhost:8000/head/check-${type === "pharmacy" ? "" : `${type}-`}reservation/${
           rsrv.id
         }`,
         {
@@ -600,8 +600,8 @@ export default function useDebtData(apiPath, month) {
     const entity = rsrv.pharmacy || rsrv.hospital || rsrv.wholesale;
     const url =
       type === "wholesale"
-        ? `https://it-club.uz/ws/get-wholesale-report/${rsrv.id}`
-        : `https://it-club.uz/mr/get-${type === "pharmacy" ? "" : `${type}-`}report/${rsrv.id}`;
+        ? `http://localhost:8000/ws/get-wholesale-report/${rsrv.id}`
+        : `http://localhost:8000/mr/get-${type === "pharmacy" ? "" : `${type}-`}report/${rsrv.id}`;
     axios({
       url: url,
       method: "GET",

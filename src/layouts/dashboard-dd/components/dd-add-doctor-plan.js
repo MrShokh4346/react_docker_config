@@ -44,7 +44,7 @@ function DeputyDirectorAddDoctorPlan() {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/mr/get-doctors-by-med-rep/${id}`, {
+        const response = await axios.get(`http://localhost:8000/mr/get-doctors-by-med-rep/${id}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -72,7 +72,7 @@ function DeputyDirectorAddDoctorPlan() {
     try {
       // Call the API with authorization header
       const response = await axios.post(
-        `https://it-club.uz/dd/add-doctor-plan/${id}`,
+        `http://localhost:8000/dd/add-doctor-plan/${id}`,
         doctorPlanData,
         {
           headers: {

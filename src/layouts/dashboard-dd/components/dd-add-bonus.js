@@ -40,7 +40,7 @@ function DeputyDirectorAddBonus() {
     }
     try {
       const response = await axios.post(
-        `https://it-club.uz/mr/paying-bonus/${bonusId}?amount=${amount}&description=${comment}`,
+        `http://localhost:8000/mr/paying-bonus/${bonusId}?amount=${amount}&description=${comment}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

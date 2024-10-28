@@ -41,7 +41,7 @@ function MedorgModal({ open, handleClose, handleSubmit, medorgToUpdate }) {
   const fetchRegionsAndReps = async () => {
     try {
       const [regionsResponse] = await Promise.all([
-        axiosInstance.get("https://it-club.uz/common/get-regions", {
+        axiosInstance.get("http://localhost:8000/common/get-regions", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

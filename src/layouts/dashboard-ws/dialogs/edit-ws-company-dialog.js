@@ -28,7 +28,7 @@ function EditWholesaleCompanyDialog({ open, handleClose, companyToUpdate, onUpda
 
   const fetchRegions = async () => {
     try {
-      const response = await axiosInstance.get("https://it-club.uz/common/get-regions", {
+      const response = await axiosInstance.get("http://localhost:8000/common/get-regions", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -67,7 +67,7 @@ function EditWholesaleCompanyDialog({ open, handleClose, companyToUpdate, onUpda
   const handleFormSubmit = async () => {
     try {
       await axiosInstance.patch(
-        `https://it-club.uz/ws/update-wholesale/${companyToUpdate.id}`,
+        `http://localhost:8000/ws/update-wholesale/${companyToUpdate.id}`,
         {
           name,
           contact,

@@ -59,8 +59,8 @@ const DashboardProfit = () => {
   const fetchData = (monthNumber = "") => {
     setLoading(true);
     const url = monthNumber
-      ? `https://it-club.uz/head/get-postupleniya?month_number=${monthNumber}`
-      : "https://it-club.uz/head/get-postupleniya";
+      ? `http://localhost:8000/head/get-postupleniya?month_number=${monthNumber}`
+      : "http://localhost:8000/head/get-postupleniya";
 
     fetch(url)
       .then((response) => response.json())

@@ -69,7 +69,7 @@ function ReservationAdd() {
 
     async function fetchHospitals() {
       try {
-        const response = await axiosInstance.get("https://it-club.uz/mr/get-hospitals", {
+        const response = await axiosInstance.get("http://localhost:8000/mr/get-hospitals", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -82,7 +82,7 @@ function ReservationAdd() {
 
     async function fetchWholesales() {
       try {
-        const response = await axiosInstance.get("https://it-club.uz/ws/get-wholesales", {
+        const response = await axiosInstance.get("http://localhost:8000/ws/get-wholesales", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -117,7 +117,7 @@ function ReservationAdd() {
 
     async function fetchMedicalReps() {
       try {
-        const response = await axiosInstance.get("https://it-club.uz/common/get-med-reps", {
+        const response = await axiosInstance.get("http://localhost:8000/common/get-med-reps", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -202,7 +202,7 @@ function ReservationAdd() {
         ? `mr/reservation/${selectedPharmacy.id}`
         : reservationType === "hospital"
         ? `mr/hospital-reservation/${selectedHospital.id}`
-        : `https://it-club.uz/ws/wholesale-reservation/${selectedWholesale.id}`;
+        : `http://localhost:8000/ws/wholesale-reservation/${selectedWholesale.id}`;
 
     try {
       const response = await axiosInstance.post(endpoint, requestData, {

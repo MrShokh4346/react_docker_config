@@ -48,7 +48,7 @@ function DeputyDirectorAddNotification() {
   useEffect(() => {
     const fetchPharmacies = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/mr/get-pharmacy?user_id=${id}`, {
+        const response = await axios.get(`http://localhost:8000/mr/get-pharmacy?user_id=${id}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -61,7 +61,7 @@ function DeputyDirectorAddNotification() {
 
     const fetchDoctors = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/mr/get-doctors-by-med-rep/${id}`, {
+        const response = await axios.get(`http://localhost:8000/mr/get-doctors-by-med-rep/${id}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -74,7 +74,7 @@ function DeputyDirectorAddNotification() {
 
     const fetchWsCompanies = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/ws/get-wholesales`, {
+        const response = await axios.get(`http://localhost:8000/ws/get-wholesales`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -109,7 +109,7 @@ function DeputyDirectorAddNotification() {
     }
 
     try {
-      const response = await axios.post(`https://it-club.uz/dd/post-notification`, dataToSend, {
+      const response = await axios.post(`http://localhost:8000/dd/post-notification`, dataToSend, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

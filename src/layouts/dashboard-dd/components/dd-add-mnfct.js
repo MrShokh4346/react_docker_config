@@ -30,7 +30,7 @@ function DeputyDirectorAddManufacturerCompany() {
     try {
       // Call the API with authorization header
       const response = await axios.post(
-        `https://it-club.uz/common/add-manufactured-company?name=${name}`,
+        `http://localhost:8000/common/add-manufactured-company?name=${name}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

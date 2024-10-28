@@ -48,7 +48,7 @@ function DeputyDirectorAddFieldForce() {
     try {
       // Call the API with authorization header
       const response = await axios.post(
-        `https://it-club.uz/${path}/register-for-${path}`,
+        `http://localhost:8000/${path}/register-for-${path}`,
         userData,
         {
           headers: {

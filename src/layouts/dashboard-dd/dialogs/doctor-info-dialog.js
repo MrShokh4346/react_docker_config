@@ -48,7 +48,7 @@ const DoctorInfoDialog = ({ open, onClose, doctorId }) => {
     if (doctorId && open) {
       setLoading(true);
       axios
-        .get(`https://it-club.uz/mr/get-doctor/${doctorId}`)
+        .get(`http://localhost:8000/mr/get-doctor/${doctorId}`)
         .then((response) => {
           console.log(response.data);
           setDoctor(response.data);

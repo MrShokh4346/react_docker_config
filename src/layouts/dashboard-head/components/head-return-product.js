@@ -36,7 +36,7 @@ function HeadReturnProduct() {
     // Fetch all products to map product_id to product name
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://it-club.uz/common/get-product", {
+        const response = await axios.get("http://localhost:8000/common/get-product", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -61,8 +61,8 @@ function HeadReturnProduct() {
       try {
         const url =
           reservationType === "pharmacy"
-            ? `https://it-club.uz/head/get-pharmacy-reservation-payed-remiainder/${reservationId}`
-            : `https://it-club.uz/head/get-wholesale-reservation-payed-remiainder/${reservationId}`;
+            ? `http://localhost:8000/head/get-pharmacy-reservation-payed-remiainder/${reservationId}`
+            : `http://localhost:8000/head/get-wholesale-reservation-payed-remiainder/${reservationId}`;
 
         const response = await axios.get(url, {
           headers: {
@@ -131,7 +131,7 @@ function HeadReturnProduct() {
 
     try {
       await axios.post(
-        `https://it-club.uz/head/return-product/${reservationId}?product_id=${selectedProduct.product_id}&quantity=${quantity}`,
+        `http://localhost:8000/head/return-product/${reservationId}?product_id=${selectedProduct.product_id}&quantity=${quantity}`,
         {},
         {
           headers: {

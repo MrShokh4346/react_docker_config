@@ -13,7 +13,7 @@ function BonusModal({ open, handleClose, id }) {
 
   const fetchRegionsAndReps = async () => {
     try {
-      const response = await axiosInstance.get(`https://it-club.uz/mr/get-bonus-history/${id}`, {
+      const response = await axiosInstance.get(`http://localhost:8000/mr/get-bonus-history/${id}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

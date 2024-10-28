@@ -44,7 +44,7 @@ function DeputyDirectorAddRegionalManager() {
     const fetchFieldForceManagers = async () => {
       try {
         const response = await axios.get(
-          `https://it-club.uz/common/get-users-by-username?username=${user.username}`,
+          `http://localhost:8000/common/get-users-by-username?username=${user.username}`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -67,7 +67,7 @@ function DeputyDirectorAddRegionalManager() {
   useEffect(() => {
     const fetchRegions = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-regions`, {
+        const response = await axios.get(`http://localhost:8000/common/get-regions`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -99,7 +99,7 @@ function DeputyDirectorAddRegionalManager() {
     try {
       // Call the API with authorization header
       const response = await axios.post(
-        `https://it-club.uz/${path}/register-for-${path}`,
+        `http://localhost:8000/${path}/register-for-${path}`,
         userData,
         {
           headers: {

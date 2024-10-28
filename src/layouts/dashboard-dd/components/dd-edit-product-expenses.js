@@ -34,7 +34,7 @@ function DeputyDirectorEditProductExpenses() {
     try {
       // Call the API with authorization header
       const response = await axios.get(
-        `https://it-club.uz/dd/set-product-expenses/${productId}?marketing_expenses=${marketingExpenses}&salary_expenses=${salaryExpenses}`,
+        `http://localhost:8000/dd/set-product-expenses/${productId}?marketing_expenses=${marketingExpenses}&salary_expenses=${salaryExpenses}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

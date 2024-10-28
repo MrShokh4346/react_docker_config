@@ -38,7 +38,7 @@ function WholesaleManagerAddCompany() {
   useEffect(() => {
     const fetchManufacturerCompanies = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-regions`, {
+        const response = await axios.get(`http://localhost:8000/common/get-regions`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -65,7 +65,7 @@ function WholesaleManagerAddCompany() {
 
     try {
       // Call the API with authorization header
-      const response = await axios.post("https://it-club.uz/ws/add-wholesale", wholesaleData, {
+      const response = await axios.post("http://localhost:8000/ws/add-wholesale", wholesaleData, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

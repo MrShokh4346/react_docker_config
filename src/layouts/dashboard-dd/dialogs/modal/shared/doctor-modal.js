@@ -38,7 +38,7 @@ function DoctorModal({ open, handleClose, handleSubmit, doctorToUpdate }) {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-category`, {
+        const response = await axios.get(`http://localhost:8000/common/get-category`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -51,7 +51,7 @@ function DoctorModal({ open, handleClose, handleSubmit, doctorToUpdate }) {
 
     const fetchSpecialities = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-speciality`, {
+        const response = await axios.get(`http://localhost:8000/common/get-speciality`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -64,7 +64,7 @@ function DoctorModal({ open, handleClose, handleSubmit, doctorToUpdate }) {
 
     const fetchMedicalOrganizations = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-medical-organization`, {
+        const response = await axios.get(`http://localhost:8000/common/get-medical-organization`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

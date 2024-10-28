@@ -12,7 +12,7 @@ export default function useBonusHistoryData(bonusId) {
     async function fetchBonusHistory() {
       try {
         const response = await axiosInstance.get(
-          `https://it-club.uz/mr/get-bonus-history/${bonusId}`,
+          `http://localhost:8000/mr/get-bonus-history/${bonusId}`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,

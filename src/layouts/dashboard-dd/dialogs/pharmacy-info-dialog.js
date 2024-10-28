@@ -50,7 +50,7 @@ const PharmacyInfoDialog = ({ open, onClose, pharmacyId }) => {
     if (pharmacyId && open) {
       setLoading(true);
       axios
-        .get(`https://it-club.uz/mr/get-pharmacy/${pharmacyId}`)
+        .get(`http://localhost:8000/mr/get-pharmacy/${pharmacyId}`)
         .then((response) => {
           setPharmacy(response.data);
           setLoading(false);

@@ -49,7 +49,7 @@ const NotificationDialog = React.memo(({ open, onClose, notificationId }) => {
       const fetchVisitData = async () => {
         try {
           const { data } = await axiosInstance.get(
-            `https://it-club.uz/common/get-notofication/${notificationId}`,
+            `http://localhost:8000/common/get-notofication/${notificationId}`,
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`,

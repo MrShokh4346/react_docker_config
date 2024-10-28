@@ -55,7 +55,7 @@ function WholesaleAddSale() {
     async function fetchManufacturers() {
       try {
         const response = await axiosInstance.get(
-          "https://it-club.uz/common/get-manufactured-company"
+          "http://localhost:8000/common/get-manufactured-company"
         );
         setManufacturers(response.data);
       } catch (error) {
@@ -65,7 +65,7 @@ function WholesaleAddSale() {
 
     async function fetchProducts() {
       try {
-        const response = await axiosInstance.get("https://it-club.uz/common/get-product");
+        const response = await axiosInstance.get("http://localhost:8000/common/get-product");
         setAvailableProducts(response.data);
       } catch (error) {
         console.error("Failed to fetch products", error);
@@ -132,7 +132,7 @@ function WholesaleAddSale() {
       console.log(requestData);
       // Call the API with authorization header
       const response = await axiosInstance.post(
-        "https://it-club.uz/mr/add-balance-in-stock",
+        "http://localhost:8000/mr/add-balance-in-stock",
         requestData,
         {
           headers: {

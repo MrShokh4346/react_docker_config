@@ -33,7 +33,7 @@ function DeputyDirectorProducts() {
   useEffect(() => {
     const getManCompany = async () => {
       try {
-        const { data } = await axios.get(`https://it-club.uz/common/get-manufactured-company`, {
+        const { data } = await axios.get(`http://localhost:8000/common/get-manufactured-company`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -45,7 +45,7 @@ function DeputyDirectorProducts() {
     };
     const getCategory = async () => {
       try {
-        const { data } = await axios.get(`https://it-club.uz/common/get-product-category`, {
+        const { data } = await axios.get(`http://localhost:8000/common/get-product-category`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

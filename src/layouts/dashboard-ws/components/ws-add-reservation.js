@@ -65,7 +65,7 @@ function WholesaleManagerAddReservation() {
 
     async function fetchMedicalReps() {
       try {
-        const response = await axiosInstance.get("https://it-club.uz/common/get-med-reps", {
+        const response = await axiosInstance.get("http://localhost:8000/common/get-med-reps", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -136,7 +136,7 @@ function WholesaleManagerAddReservation() {
       products: productsData,
     };
 
-    const endpoint = `https://it-club.uz/ws/wholesale-reservation/${wholesale_id}`;
+    const endpoint = `http://localhost:8000/ws/wholesale-reservation/${wholesale_id}`;
     console.log(requestData);
     try {
       const response = await axiosInstance.post(endpoint, requestData, {

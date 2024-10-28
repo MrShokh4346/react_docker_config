@@ -16,7 +16,7 @@ export default function useProductData(apiPath, id1, id2) {
   const handleSubmit = async (udpatedProduct) => {
     try {
       const response = await axiosInstance.put(
-        `https://it-club.uz/common/update-product/${udpatedProduct.id}`,
+        `http://localhost:8000/common/update-product/${udpatedProduct.id}`,
         udpatedProduct,
         {
           headers: {

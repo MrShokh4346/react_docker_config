@@ -37,7 +37,7 @@ function HeadofOrdersAddWarehouseData() {
     const getProducts = async () => {
       try {
         const response = await axios.get(
-          `https://it-club.uz/common/filter-product?man_company_id=${factoryId}`,
+          `http://localhost:8000/common/filter-product?man_company_id=${factoryId}`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -67,7 +67,7 @@ function HeadofOrdersAddWarehouseData() {
     try {
       // Call the API with authorization header
       const response = await axios.post(
-        "https://it-club.uz/head/add-factory-warehouse",
+        "http://localhost:8000/head/add-factory-warehouse",
         warehouseData,
         {
           headers: {

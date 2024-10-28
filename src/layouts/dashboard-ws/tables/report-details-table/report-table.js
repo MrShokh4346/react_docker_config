@@ -54,15 +54,15 @@ function WholesaleReportTable({ wsCompanyName, wsCompanyId }) {
     async function fetchData() {
       try {
         const pharmaciesResponse = await axiosInstance.get(
-          "https://it-club.uz/mr/get-all-pharmacy"
+          "http://localhost:8000/mr/get-all-pharmacy"
         );
         setPharmacies(pharmaciesResponse.data);
 
-        const regionsResponse = await axiosInstance.get("https://it-club.uz/common/get-regions");
+        const regionsResponse = await axiosInstance.get("http://localhost:8000/common/get-regions");
         setRegions(regionsResponse.data);
 
         const medRepsResponse = await axiosInstance.get(
-          "https://it-club.uz/common/get-medical-representatives"
+          "http://localhost:8000/common/get-medical-representatives"
         );
         setMedReps(medRepsResponse.data);
       } catch (error) {

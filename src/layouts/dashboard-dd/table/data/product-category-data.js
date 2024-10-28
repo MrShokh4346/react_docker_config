@@ -27,7 +27,7 @@ export default function useProductCategoryData(apiPath) {
   const handleSubmit = async (updatedCategory) => {
     try {
       const response = await axiosInstance.put(
-        `https://it-club.uz/common/update-product-category/${updatedCategory.id}?name=${updatedCategory.name}`,
+        `http://localhost:8000/common/update-product-category/${updatedCategory.id}?name=${updatedCategory.name}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

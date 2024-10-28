@@ -44,7 +44,7 @@ export default function ManagersMenu({
   useEffect(() => {
     const fetchFieldForceManagers = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-users`, {
+        const response = await axios.get(`http://localhost:8000/common/get-users`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -60,7 +60,7 @@ export default function ManagersMenu({
 
     const fetchRegionalManagers = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-users`, {
+        const response = await axios.get(`http://localhost:8000/common/get-users`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -76,7 +76,7 @@ export default function ManagersMenu({
 
     const fetchProductManagers = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/common/get-users`, {
+        const response = await axios.get(`http://localhost:8000/common/get-users`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

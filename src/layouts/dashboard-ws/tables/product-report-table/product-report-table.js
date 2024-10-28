@@ -27,7 +27,7 @@ function WholesaleProductReportTable({ pharmacyName, products, pharmacy_id, whol
 
   const handleQuantityUpdate = async (newQuantity) => {
     try {
-      await axiosInstance.post(`https://it-club.uz/ws/return-product/${wholesale_id}`, {
+      await axiosInstance.post(`http://localhost:8000/ws/return-product/${wholesale_id}`, {
         pharmacy_id,
         product_id: selectedProduct.product.id,
         amount: newQuantity,

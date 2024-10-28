@@ -45,7 +45,7 @@ function DeputyDirectorAddPharmacyPlan() {
   useEffect(() => {
     const fetchPharmacies = async () => {
       try {
-        const response = await axios.get(`https://it-club.uz/mr/get-pharmacy?user_id=${id}`, {
+        const response = await axios.get(`http://localhost:8000/mr/get-pharmacy?user_id=${id}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -73,7 +73,7 @@ function DeputyDirectorAddPharmacyPlan() {
     try {
       // Call the API with authorization header
       const response = await axios.post(
-        `https://it-club.uz/dd/add-pharmacy-plan/${id}`,
+        `http://localhost:8000/dd/add-pharmacy-plan/${id}`,
         pharmacyPlanData,
         {
           headers: {

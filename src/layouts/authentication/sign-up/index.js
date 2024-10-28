@@ -32,7 +32,7 @@ function Cover() {
   const handleSignUp = async (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
     try {
-      const response = await axios.post("https://it-club.uz/register", {
+      const response = await axios.post("http://localhost:8000/register", {
         full_name: name,
         username: email, // Assuming username is the email
         password: password,

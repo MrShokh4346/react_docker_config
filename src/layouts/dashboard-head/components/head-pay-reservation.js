@@ -69,7 +69,7 @@ function HeadPayReservation() {
   const fetchPharmacies = async (medRepId) => {
     try {
       const response = await axiosInstance.get(
-        `https://it-club.uz/mr/get-pharmacy?user_id=${medRepId}`
+        `http://localhost:8000/mr/get-pharmacy?user_id=${medRepId}`
       );
       setPharmacies(response.data);
     } catch (error) {
@@ -80,7 +80,7 @@ function HeadPayReservation() {
   const fetchDoctorsByMedRep = async (medRepId) => {
     try {
       const response = await axiosInstance.get(
-        `https://it-club.uz/mr/get-doctors-by-med-rep/${medRepId}`
+        `http://localhost:8000/mr/get-doctors-by-med-rep/${medRepId}`
       );
       setDoctors(response.data);
     } catch (error) {
